@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Observable} from "rxjs";
+import {Store} from "@ngrx/store";
+import {appState} from "./app.reducer";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-clients';
+  dato$ : Observable<any>;
+
+  constructor(private store: Store<appState>) {
+    this.dato$ = store.select('txt');
+  }
 }

@@ -1,0 +1,43 @@
+<section class="services-area mt-4">
+  <mat-card class="mb-3">
+    <h3 style="color: #212121; font-size: 1.5rem; text-align: center">Lista de clientes</h3>
+  </mat-card>
+  <div class="divider"></div>
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <a mat-stroked-button color="warn" style="margin-left: 20px" [routerLink]="['/clientes/nuevo']" (click)="message()">Nuevo cliente</a>
+  </div>
+  <div class="divider"></div>
+
+  <mat-card class="mat-table orders-table">
+    <div class="mat-header-row">
+      <div class="mat-header-cell">Nombre</div>
+      <div class="mat-header-cell" >Apellido</div>
+      <div class="mat-header-cell" >Edad</div>
+      <div class="mat-header-cell">Fecha de Nacimiento</div>
+    </div>
+    <div class="mat-row"
+         *ngFor="let cliente of clientes">
+      <div class="mat-cell"><span >{{cliente.nombre}}</span></div>
+      <div class="mat-cell"><span >{{cliente.apellido}}</span></div>
+      <div class="mat-cell"><span >{{cliente.edad}}</span></div>
+      <div class="mat-cell"><span >{{cliente.fechaNacimiento}}</span></div>
+     <!-- <div class="mat-cell">
+        <div class="p-1">
+          <button  mat-stroked-button color="warn">
+            Nuevo
+          </button>
+        </div>
+      </div>-->
+      <!--<div class="mat-cell">
+        <button mat-icon-button color="primary" matTooltip="Ver detalle">
+          <i class="material-icons">remove_red_eye</i>
+        </button>
+      </div>-->
+    </div>
+  </mat-card>
+</section>
+
+<div class="raw">
+  <h1>Promedio de edad: {{this.suma / this.contador}}</h1>
+  <h1>Desviación estándar: </h1>
+</div>
